@@ -1,6 +1,8 @@
 {% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Travello</title>
 	<meta charset="utf-8">
@@ -32,10 +34,9 @@
 								<nav class="main_nav">
 									<ul class="d-flex flex-row align-items-start justify-content-start">
 										<li class="active"><a href="index.html">Home</a></li>
-										<li><a href="about.html">About us</a></li>
-										<li><a href="#">Services</a></li>
-										<li><a href="news.html">News</a></li>
 										<li><a href="contact.html">Contact</a></li>
+										<li><a href="accounts/register">Register</a></li>
+										
 									</ul>
 								</nav>
 								<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -108,7 +109,7 @@
 					<!-- Slide -->
 					<div class="owl-item">
 						<div class="background_image"
-							></div>
+							style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -127,7 +128,7 @@
 					<!-- Slide -->
 					<div class="owl-item">
 						<div class="background_image"
-							></div>
+							style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -145,7 +146,8 @@
 
 					<!-- Slide -->
 					<div class="owl-item">
-						<div class="background_image"></div>
+						<div class="background_image"
+							style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -206,7 +208,7 @@
 		<!-- Intro -->
 
 		<div class="intro">
-			<div class="intro_background" ></div>
+			<div class="intro_background" style="background-image:url({% static 'images/beach.svg' %})"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -281,8 +283,14 @@
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="{{baseUrl}}/{{dest.img}}" alt="">
-									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+									<img src="{{dest.img.url}}" alt="">
+									{% if dest.offer %}
+									<div class="spec_offer text-center">
+										
+										<a href="#">Special Offer</a>
+									
+									</div>
+									{% endif %}
 								</div>
 								<div class="destination_content">
 									<div class="destination_title"><a href="destinations.html">{{dest.name}}</a>
@@ -471,7 +479,8 @@
 					<!-- News Sidebar -->
 					<div class="col-xl-4">
 						<div class="travello">
-							<div class="background_image"></div>
+							<div class="background_image"
+								style="background-image:url({% static 'images/travello.jpg')"></div>
 							<div class="travello_content">
 								<div class="travello_content_inner">
 									<div></div>
